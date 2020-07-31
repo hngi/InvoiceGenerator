@@ -57,13 +57,13 @@
                         <input type="text" class="mt-2 invoiceCreation__inputGen font-weight-bold" disabled
                             aria-describedby="Your company" value="Your Company">
                         <input type="text" id="companyName" class="mt-2 invoiceCreation__inputGen "
-                            aria-describedby="company Name" placeholder="Company Name">
+                            aria-describedby="company Name" placeholder="Company Name" name="companyName" required>
                         <input type="text" id="companyAddress" class="mt-2 invoiceCreation__inputGen "
-                            aria-describedby="company address" placeholder="Company Address">
+                            aria-describedby="company address" placeholder="Company Address" name="companyAddress" required>
                         <input type="text" id="companyCity" class="mt-2 invoiceCreation__inputGen "
-                            aria-describedby="company city" placeholder="City, State">
+                            aria-describedby="company city" placeholder="City, State" name="companyCity" required>
                         <input type="text" id="companyCountry" class="mt-2 invoiceCreation__inputGen "
-                            aria-describedby="company country" placeholder="Country">
+                            aria-describedby="company country" placeholder="Country" name="companyCountry" required>
                     </div>
                     <div class=" col-12 col-lg-5 ml-auto">
 
@@ -71,14 +71,14 @@
                             <input type="text" class="mt-2 invoiceCreation__inputGen  mr-2 " disabled
                                 aria-describedby="Invoice Date" value="Invoice Date">
                             <input type="date" id="invoiceDate" class="mt-2 invoiceCreation__date "
-                                aria-describedby="insert invoice Date">
+                                aria-describedby="insert invoice Date" name="invoiceDate" required>
                         </div>
                         <div class="d-flex justify-content-between mb-2 flex-wrap flex-lg-nowrap mb-2">
 
                             <input type="text" class=" invoiceCreation__inputGen  mr-2 " disabled
                                 aria-describedby="Due Date" value="Due Date">
                             <input type="date" id="dueDate" class=" mt-2 mt-lg-0 invoiceCreation__date "
-                                aria-describedby="insert due Date">
+                                aria-describedby="insert due Date" name="dueDate" required>
                         </div>
                     </div>
                 </div>
@@ -89,14 +89,14 @@
                     <div class="col-lg-4 col-12 ">
                         <input type="text" class="mt-2 invoiceCreation__inputGen font-weight-bold" disabled
                             aria-describedby="Bill to " value="Bill To:">
-                        <input type="text" id="clientName" class="mt-2 invoiceCreation__inputGen "
-                            aria-describedby="client Name" placeholder="Client Name">
-                        <input type="text" id="clientAddress" class="mt-2 invoiceCreation__inputGen "
-                            aria-describedby="client address" placeholder="Client Address">
-                        <input type="text" id="clientCity" class="mt-2 invoiceCreation__inputGen "
-                            aria-describedby="clent city" placeholder="City, State">
-                        <input type="text" id="clientCountry" class="mt-2 invoiceCreation__inputGen "
-                            aria-describedby="client country" placeholder="Country">
+                        <input type="text" id="clientName" class="mt-2 invoiceCreation__inputGen " required
+                            aria-describedby="client Name" placeholder="Client Name" name="clientName">
+                        <input type="text" id="clientAddress" class="mt-2 invoiceCreation__inputGen " required
+                            aria-describedby="client address" placeholder="Client Address" name="clientAddress">
+                        <input type="text" id="clientCity" class="mt-2 invoiceCreation__inputGen " required
+                            aria-describedby="clent city" placeholder="City, State" name="clientCity">
+                        <input type="text" id="clientCountry" class="mt-2 invoiceCreation__inputGen " required
+                            aria-describedby="client country" placeholder="Country" name="clientCountry">
                     </div>
                 </div>
                 <!-- Bill Data -->
@@ -211,17 +211,17 @@
                     <div class="col-12 col-lg-5 ">
                         <input type="text" class="mt-2 invoiceCreation__inputGen font-weight-bold" disabled
                             aria-describedby="Notes" value="Note">
-                        <input type="text" id="notes" class="mt-2 invoiceCreation__inputGen "
-                            aria-describedby="Notes input" placeholder="Thanks for doing business with us">
+                        <input type="text" id="notes" class="mt-2 invoiceCreation__inputGen " required
+                            aria-describedby="Notes input" placeholder="Thanks for doing business with us" name="feedback">
                     </div>
                 </div>
                 <div class="row mt-2 mb-5">
                     <div class="col-12 col-lg-5 ">
                         <input type="text" class="mt-2 invoiceCreation__inputGen font-weight-bold" disabled
                             aria-describedby="Notes" value="Terms and conditions">
-                        <input type="text" id="terms" class="mt-2 invoiceCreation__inputGen "
+                        <input type="text" id="terms" class="mt-2 invoiceCreation__inputGen " required
                             aria-describedby="terms and conditions input"
-                            placeholder="Please make payment by the due date">
+                            placeholder="Please make payment by the due date" name="paymentMethod">
                     </div>
                 </div>
                 <!--Notes-->
@@ -235,5 +235,11 @@
 
 {% endblock content %}
 {% block page_script %}
-    <script src="{% static 'js/invoiceCreation.js' %}"></script>
+<script src="{% static 'js/jspdf.debug.js' %}"></script>
+<script>if (window.define) delete window.define.amd;</script>
+<script src="{% static 'js/jspdf-autotable.js' %}"></script>
+<script src="{% static 'js/template_generation.js' %}"></script>
+
+<script src="{% static 'js/invoiceCreation.js' %}"></script>
+    
 {% endblock page_script %}
