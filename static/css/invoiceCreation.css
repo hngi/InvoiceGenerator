@@ -100,10 +100,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: #757575;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+/*Hide arrow input[number]*/
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/*Hide arrow input[number] mozilla specially*/
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 .table__hr {
@@ -116,7 +124,6 @@ input[type=number]::-webkit-outer-spin-button {
   height: 1px;
   width: 50%;
   margin-left: auto;
-
 }
 
 .table__info {
@@ -228,7 +235,7 @@ input[type=number]::-webkit-outer-spin-button {
     font-weight: 700;
   }
 
-  .table__hr2{
-    width:100%;
+  .table__hr2 {
+    width: 100%;
   }
 }
